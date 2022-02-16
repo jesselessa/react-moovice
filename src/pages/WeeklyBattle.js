@@ -4,7 +4,7 @@ export default class WeeklyBattle extends Component {
   render() {
     return (
       <>
-        <h1>WeeklyBattle</h1>
+        <h1>Weekly Battle</h1>
       </>
     );
   }
