@@ -25,17 +25,6 @@ export default class PopularBattle extends Component {
       });
   }
 
-  componentDidUpdate(_prevProps, prevState) {
-    if (prevState.currentBattle !== this.state.currentBattle) {
-      console.log(this.state.movies[this.state.currentBattle].title);
-      if (this.state.movies[this.state.currentBattle].title === undefined) {
-        const noMoreMovies = document.getElementById("noMoreMovies");
-        noMoreMovies.classList.remove("endList");
-        return console.log("Done");
-      }
-    }
-  }
-
   handleClick() {
     this.setState((prevState) => ({
       currentBattle: prevState.currentBattle + 2,
@@ -72,7 +61,7 @@ export default class PopularBattle extends Component {
             ;
           </div>
         ) : (
-          <p>Is loading...</p>
+          <p>Content is loading...</p>
         )}
       </main>
     );
