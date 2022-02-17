@@ -8,6 +8,7 @@ export default class PopularBattle extends Component {
       isLoaded: false,
       movies: [],
       currentBattle: 0,
+      favorites: localStorage.getItem("favorites") || [], // soit récupération localStorage, soit par défaut création d'un tableau vide
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -25,9 +26,13 @@ export default class PopularBattle extends Component {
       });
   }
 
-  handleClick() {
+  handleClick(id) {
+    const favoritesTemp = [...this.state.favorites, id];
+    // on crée une copie temporaire de this.state.favorites dans un nouveau tableau en utilisant le spread opérateur on ajoute à l'intérieur de ce tableau à la suite l'id du film sélectionné par l'utilisateur
+    localStorage.setItem("favorites", JSON.stringify(favoritesTemp));
     this.setState((prevState) => ({
       currentBattle: prevState.currentBattle + 2,
+      favorites: favoritesTemp,
     }));
   }
 
@@ -47,7 +52,7 @@ export default class PopularBattle extends Component {
               title={selectedMovie1.title}
               release_date={selectedMovie1.release_date}
               overview={selectedMovie1.overview}
-              onClick={() => this.handleClick()}
+              onClick={() => this.handleClick(selectedMovie1.id)}
             ></Card>
             ;
             <Card
@@ -56,7 +61,7 @@ export default class PopularBattle extends Component {
               title={selectedMovie2.title}
               release_date={selectedMovie2.release_date}
               overview={selectedMovie2.overview}
-              onClick={() => this.handleClick()}
+              onClick={() => this.handleClick(selectedMovie2.id)}
             ></Card>
             ;
           </div>
