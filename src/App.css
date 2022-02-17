@@ -25,3 +25,20 @@ nav {
   width: 100vw;
   max-width: 100%;
 }
+
+.movieBox {
+  text-align: center;
+  margin: 3rem 0 3rem 0;
+}
+
+.movieBox img,
+.movieBox p {
+  margin-bottom: 0.5rem;
+}
+.movieBox h2 {
+  margin-bottom: 1rem;
+}
+
+.movieBox span {
+  font-weight: bold;
+}
