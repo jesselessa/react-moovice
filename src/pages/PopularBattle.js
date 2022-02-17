@@ -8,7 +8,7 @@ export default class PopularBattle extends Component {
       isLoaded: false,
       movies: [],
       currentBattle: 0,
-      favorites: localStorage.getItem("favorites") || [], // soit récupération localStorage, soit par défaut création d'un tableau vide
+      favorites: JSON.parse(localStorage.getItem("favorites")) || [], // soit récupération localStorage, soit par défaut création d'un tableau vide
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -41,34 +41,44 @@ export default class PopularBattle extends Component {
       selectedMovie1 = movies[this.state.currentBattle],
       selectedMovie2 = movies[this.state.currentBattle + 1];
 
-    return (
-      <main>
-        <h1>Popular Battle</h1>
-        {this.state.isLoaded ? (
+    if (this.state.currentBattle < movies.length - 1) {
+      return (
+        <main>
+          <h1>Popular Battle</h1>
+          {this.state.isLoaded ? (
+            <div>
+              <Card
+                key={selectedMovie1.id}
+                poster_path={selectedMovie1.poster_path}
+                title={selectedMovie1.title}
+                release_date={selectedMovie1.release_date}
+                overview={selectedMovie1.overview}
+                onClick={() => this.handleClick(selectedMovie1.id)}
+              ></Card>
+              ;
+              <Card
+                key={selectedMovie2.id}
+                poster_path={selectedMovie2.poster_path}
+                title={selectedMovie2.title}
+                release_date={selectedMovie2.release_date}
+                overview={selectedMovie2.overview}
+                onClick={() => this.handleClick(selectedMovie2.id)}
+              ></Card>
+              ;
+            </div>
+          ) : (
+            <p>Content is loading...</p>
+          )}
+        </main>
+      );
+    } else {
+      return (
+        <main>
           <div>
-            <Card
-              key={selectedMovie1.id}
-              poster_path={selectedMovie1.poster_path}
-              title={selectedMovie1.title}
-              release_date={selectedMovie1.release_date}
-              overview={selectedMovie1.overview}
-              onClick={() => this.handleClick(selectedMovie1.id)}
-            ></Card>
-            ;
-            <Card
-              key={selectedMovie2.id}
-              poster_path={selectedMovie2.poster_path}
-              title={selectedMovie2.title}
-              release_date={selectedMovie2.release_date}
-              overview={selectedMovie2.overview}
-              onClick={() => this.handleClick(selectedMovie2.id)}
-            ></Card>
-            ;
+            <h2 className="">Vous avez parcouru tous les films !</h2>
           </div>
-        ) : (
-          <p>Content is loading...</p>
-        )}
-      </main>
-    );
+        </main>
+      );
+    }
   }
 }
