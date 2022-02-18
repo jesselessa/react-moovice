@@ -57,7 +57,7 @@ export default class PopularBattle extends Component {
                 picture={selectedMovie1.poster_path}
                 title={selectedMovie1.title}
                 releaseDate={selectedMovie1.release_date}
-                overview={selectedMovie1.overview}
+                description={selectedMovie1.overview}
                 onClick={() => this.handleClick(selectedMovie1.id)}
               ></Card>
               ;
@@ -66,7 +66,7 @@ export default class PopularBattle extends Component {
                 picture={selectedMovie2.poster_path}
                 title={selectedMovie2.title}
                 releaseDate={selectedMovie2.release_date}
-                overview={selectedMovie2.overview}
+                description={selectedMovie2.overview}
                 onClick={() => this.handleClick(selectedMovie2.id)}
               ></Card>
               ;

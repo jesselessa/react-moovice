@@ -37,7 +37,7 @@ export default class Weekly extends Component {
               picture={movie.poster_path}
               title={movie.title}
               releaseDate={movie.release_date}
-              overview={movie.overview}
+              description={movie.overview}
             ></Card>
           );
         })}

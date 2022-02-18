@@ -22,8 +22,8 @@ export default class Card extends Component {
           {this.props.releaseDate}
         </p>
         <p>
-          <span>Description : </span>
-          {this.props.overview}
+          <span>Summary : </span>
+          {this.props.description}
         </p>
       </div>
     );
