@@ -28,13 +28,15 @@ export default class Popular extends Component {
         <h1>Popular</h1>
         {this.state.movies.map((movie) => {
           return (
-            <Card
-              key={movie.id}
-              picture={movie.poster_path}
-              title={movie.title}
-              releaseDate={movie.release_date}
-              description={movie.overview}
-            ></Card>
+            <div className="cardBox">
+              <Card
+                key={movie.id}
+                picture={movie.poster_path}
+                title={movie.title}
+                releaseDate={movie.release_date}
+                description={movie.overview}
+              ></Card>
+            </div>
           );
         })}
       </main>

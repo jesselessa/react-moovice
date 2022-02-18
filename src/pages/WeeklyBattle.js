@@ -54,7 +54,7 @@ export default class WeeklyBattle extends Component {
         <main>
           <h1>Weekly Battle</h1>
           {this.state.isLoaded ? (
-            <div>
+            <div className="cardBox">
               <Card
                 key={selectedMovie1.id}
                 picture={selectedMovie1.poster_path}
