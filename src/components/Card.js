@@ -5,9 +5,9 @@ export default class Card extends Component {
   render() {
     return (
       <div className="movieBox" onClick={this.props.onClick}>
-        {this.props.poster_path ? (
+        {this.props.picture ? (
           <img
-            src={`https://image.tmdb.org/t/p/w300/${this.props.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w300/${this.props.picture}`}
             alt="poster"
           />
         ) : (
@@ -19,7 +19,7 @@ export default class Card extends Component {
         <h2>{this.props.title}</h2>
         <p>
           <span>Release date : </span>
-          {this.props.release_date}
+          {this.props.releaseDate}
         </p>
         <p>
           <span>Description : </span>

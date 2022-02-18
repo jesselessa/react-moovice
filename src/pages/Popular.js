@@ -30,9 +30,9 @@ export default class Popular extends Component {
           return (
             <Card
               key={movie.id}
-              poster_path={movie.poster_path}
+              picture={movie.poster_path}
               title={movie.title}
-              release_date={movie.release_date}
+              releaseDate={movie.release_date}
               overview={movie.overview}
             ></Card>
           );
